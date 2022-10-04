@@ -10,5 +10,11 @@ dp = Dispatcher(bot)
 async def send_welcome(message):
     await message.reply(config.greeting)
 
+
+@dp.message_handler()
+async def echo(message):
+    await message.reply(message.text)
+
+
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
